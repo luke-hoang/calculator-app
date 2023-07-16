@@ -75,8 +75,8 @@
 
 /********** font sizes **********/
 
-@media screen and (min-width: 395px) and (min-height: 700px) { :root { font-size: 18px; } }
-@media screen and (min-width: 440px) and (min-height: 775px) { :root { font-size: 20px; } }
+@media screen and (min-width: 455px) and (min-height: 760px) { :root { font-size: 18px; } }
+@media screen and (min-width: 490px) and (min-height: 835px) { :root { font-size: 20px; } }
 
 
 /********** layout **********/
@@ -200,25 +200,26 @@ body {
   gap: 0.8125rem;
   grid-template-rows: repeat(5, 4rem);
   grid-template-columns: repeat(4, 4rem);
+  grid-template-areas:
+    "seven   eight  nine    delete"
+    "four    five   six     plus  "
+    "one     two    three   minus "
+    "period  zero   divide  times "
+    "reset   reset  equals  equals";
 }
 
-#reset,
-#equals {
-  grid-column: span 2;
-}
-
-.key {
+.keypad button {
   border: none;
   border-radius: 0.5rem;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
-.key:hover {
+.keypad button:hover {
   cursor: pointer;
 }
 
-.key:active {
+.keypad button:active {
   transform: translateY(0.25rem);
   box-shadow: none;
 }
@@ -252,3 +253,22 @@ body {
 .key--tertiary:hover {
   background-color: var(--key-tertiary-hover);
 }
+
+
+#zero   { grid-area: zero;   }
+#one    { grid-area: one;    }
+#two    { grid-area: two;    }
+#three  { grid-area: three;  }
+#four   { grid-area: four;   }
+#five   { grid-area: five;   }
+#six    { grid-area: six;    }
+#seven  { grid-area: seven;  }
+#eight  { grid-area: eight;  }
+#nine   { grid-area: nine;   }
+#plus   { grid-area: plus;   }
+#minus  { grid-area: minus;  }
+#times  { grid-area: times;  } 
+#divide { grid-area: divide; }
+#equals { grid-area: equals; }
+#reset  { grid-area: reset;  }
+#delete { grid-area: delete; }
