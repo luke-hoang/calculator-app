@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <title>Frontend Mentor | Calculator app</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="calculator">  
+      <div class="header">
+        <h1>calc</h1>
+        <p>theme</p>
+        <div class="theme-labels">
+          <label for="theme-1">1</label>
+          <label for="theme-2">2</label>
+          <label for="theme-3">3</label>
+        </div>
+        <div class="theme-toggle">
+          <input type="radio" name="theme" id="theme-1" checked>
+          <input type="radio" name="theme" id="theme-2">
+          <input type="radio" name="theme" id="theme-3">
+        </div>
+      </div>
+
+      <div class="screen">
+        <span class="output" id="output">399,981</span>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button class="key key--primary" id="seven">7</button>
+        <button class="key key--primary" id="eight">8</button>
+        <button class="key key--primary" id="nine">9</button>
+        <button class="key key--secondary" id="delete">DEL</button>
+        <button class="key key--primary" id="four">4</button>
+        <button class="key key--primary" id="five">5</button>
+        <button class="key key--primary" id="six">6</button>
+        <button class="key key--primary" id="plus">&plus;</button>
+        <button class="key key--primary" id="one">1</button>
+        <button class="key key--primary" id="two">2</button>
+        <button class="key key--primary" id="three"> 3</button>
+        <button class="key key--primary" id="minus">&minus;</button>
+        <button class="key key--primary" id="period">&period;</button>
+        <button class="key key--primary" id="zero">0</button>
+        <button class="key key--primary" id="divide"> &divide;</button>
+        <button class="key key--primary" id="times"> &times;</button>
+        <button class="key key--secondary" id="reset">RESET</button>
+        <button class="key key--tertiary" id="equals">&equals;</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

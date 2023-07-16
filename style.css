@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
+
+/********** color themes **********/
+
+:root:has(#theme-1:checked) {
+  --main-background: hsl(222, 26%, 31%);
+  --main-text: hsl(0, 0%, 100%);
+  --theme-picker-background: hsl(223, 31%, 20%);
+  --theme-picker-option-checked: hsl(6, 63%, 50%);
+  --theme-picker-option-hover: hsl(6, 93%, 67%);
+  --screen-background: hsl(224, 36%, 15%);
+  --screen-text: hsl(0, 0%, 100%);
+  --keypad-background: hsl(224, 30%, 21%);
+  --key-primary-background: hsl(31, 24%, 89%);
+  --key-primary-hover: hsl(31, 100%, 100%);
+  --key-primary-shadow: hsl(27, 15%, 65%);
+  --key-primary-text: hsl(221, 14%, 31%);
+  --key-secondary-background: hsl(224, 21%, 49%);
+  --key-secondary-hover: hsl(224, 51%, 76%);
+  --key-secondary-shadow: hsl(225, 28%, 35%);
+  --key-secondary-text: hsl(0, 0%, 100%);
+  --key-tertiary-background: hsl(6, 63%, 50%);
+  --key-tertiary-hover: hsl(6, 93%, 67%);
+  --key-tertiary-shadow: hsl(6, 70%, 34%);
+  --key-tertiary-text: hsl(0, 0%, 100%);
+}
+
+:root:has(#theme-2:checked) {
+  --main-background: hsl(0, 0%, 90%);
+  --main-text: hsl(60, 10%, 19%);
+  --theme-picker-background: hsl(0, 5%, 81%);
+  --theme-picker-option-checked: hsl(25, 98%, 40%);
+  --theme-picker-option-hover: hsl(25, 100%, 61%);
+  --screen-background: hsl(0, 0%, 93%);
+  --screen-text: hsl(60, 10%, 19%);
+  --keypad-background: hsl(0, 5%, 81%);
+  --key-primary-background: hsl(45, 7%, 89%);
+  --key-primary-hover: hsl(0, 0%, 100%);
+  --key-primary-shadow: hsl(35, 11%, 61%);
+  --key-primary-text: hsl(60, 10%, 19%);
+  --key-secondary-background: hsl(185, 42%, 37%);
+  --key-secondary-hover: hsl(184, 40%, 56%);
+  --key-secondary-shadow: hsl(185, 58%, 25%);
+  --key-secondary-text: hsl(0, 0%, 100%);
+  --key-tertiary-background: hsl(25, 98%, 40%);
+  --key-tertiary-hover: hsl(25, 100%, 61%);
+  --key-tertiary-shadow: hsl(25, 99%, 27%);
+  --key-tertiary-text: hsl(0, 0%, 100%);
+}
+
+:root:has(#theme-3:checked) {
+  --main-background: hsl(267, 74%, 9%);
+  --main-text: hsl(52, 100%, 62%);
+  --theme-picker-background: hsl(268, 71%, 12%);
+  --theme-picker-option-checked: hsl(176, 100%, 44%);
+  --theme-picker-option-hover: hsl(176, 100%, 79%);
+  --screen-background: hsl(268, 71%, 12%);
+  --screen-text: hsl(52, 100%, 62%);
+  --keypad-background: hsl(268, 71%, 12%);
+  --key-primary-background: hsl(268, 47%, 21%);
+  --key-primary-hover: hsl(268, 54%, 44%);
+  --key-primary-shadow: hsl(290, 70%, 36%);
+  --key-primary-text: hsl(52, 100%, 62%);
+  --key-secondary-background: hsl(280, 90%, 26%);
+  --key-secondary-hover: hsl(280, 56%, 44%);
+  --key-secondary-shadow: hsl(285, 91%, 52%);
+  --key-secondary-text: hsl(0, 0%, 100%);
+  --key-tertiary-background: hsl(176, 100%, 44%);
+  --key-tertiary-hover: hsl(176, 100%, 79%);
+  --key-tertiary-shadow: hsl(176, 93%, 70%);
+  --key-tertiary-text: hsl(198, 20%, 13%);
+}
+
+
+/********** font sizes **********/
+
+@media screen and (min-width: 395px) and (min-height: 700px) { :root { font-size: 18px; } }
+@media screen and (min-width: 440px) and (min-height: 775px) { :root { font-size: 20px; } }
+
+
+/********** layout **********/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--main-background);
+  color: var(--main-text);
+  font-family: 'League Spartan', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1.5rem;
+}
+
+
+/********** header **********/
+
+.header {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "a b c"
+    "d e f";
+}
+
+.header h1 {
+  grid-area: d;
+  font-size: 2rem;
+}
+
+.header p {
+  grid-area: e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+
+/********** theme picker **********/
+
+.theme-labels {
+  grid-area: c;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.75rem;
+  font-weight: 700;
+  align-self: flex-end;
+}
+
+.theme-toggle {
+  grid-area: f;
+  background-color: var(--theme-picker-background);
+  border-radius: 2rem;
+  min-height: 1.625rem;
+  min-width: 4.375rem;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.theme-toggle input {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.theme-toggle input:checked {
+  background-color: var(--theme-picker-option-checked); 
+}
+
+.theme-toggle input:hover {
+  background-color: var(--theme-picker-option-hover); 
+}
+
+
+/********** screen **********/
+
+.screen {
+  background-color: var(--screen-background);
+  color: var(--screen-text);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: right;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+
+/********** keypad **********/
+
+.keypad {
+  background-color: var(--keypad-background);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  display: grid;
+  justify-content: center;
+  gap: 0.8125rem;
+  grid-template-rows: repeat(5, 4rem);
+  grid-template-columns: repeat(4, 4rem);
+}
+
+#reset,
+#equals {
+  grid-column: span 2;
+}
+
+.key {
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.key:hover {
+  cursor: pointer;
+}
+
+.key:active {
+  transform: translateY(0.25rem);
+  box-shadow: none;
+}
+
+.key--primary {
+  background-color: var(--key-primary-background);
+  box-shadow: 0 0.25rem var(--key-primary-shadow);
+  color: var(--key-primary-text);
+}
+
+.key--primary:hover {
+  background-color: var(--key-primary-hover);
+}
+
+.key--secondary {
+  background-color: var(--key-secondary-background);
+  box-shadow: 0 0.25rem var(--key-secondary-shadow);
+  color: var(--key-secondary-text);
+}
+
+.key--secondary:hover {
+  background-color: var(--key-secondary-hover);
+}
+
+.key--tertiary {
+  background-color: var(--key-tertiary-background);
+  box-shadow: 0 0.25rem var(--key-tertiary-shadow);
+  color: var(--key-tertiary-text);
+}
+
+.key--tertiary:hover {
+  background-color: var(--key-tertiary-hover);
+}
