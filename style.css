@@ -3,7 +3,7 @@
 
 /********** color themes **********/
 
-:root:has(#theme-1:checked) {
+:root[color-theme="theme-1"] {
   --main-background: hsl(222, 26%, 31%);
   --main-text: hsl(0, 0%, 100%);
   --theme-picker-background: hsl(223, 31%, 20%);
@@ -26,7 +26,7 @@
   --key-tertiary-text: hsl(0, 0%, 100%);
 }
 
-:root:has(#theme-2:checked) {
+:root[color-theme="theme-2"] {
   --main-background: hsl(0, 0%, 90%);
   --main-text: hsl(60, 10%, 19%);
   --theme-picker-background: hsl(0, 5%, 81%);
@@ -49,7 +49,7 @@
   --key-tertiary-text: hsl(0, 0%, 100%);
 }
 
-:root:has(#theme-3:checked) {
+:root[color-theme="theme-3"] {
   --main-background: hsl(267, 74%, 9%);
   --main-text: hsl(52, 100%, 62%);
   --theme-picker-background: hsl(268, 71%, 12%);
@@ -135,7 +135,7 @@ body {
 }
 
 
-/********** theme picker **********/
+/********** color theme picker **********/
 
 .theme-labels {
   grid-area: c;
