@@ -204,7 +204,7 @@ body {
     "seven   eight  nine    delete"
     "four    five   six     plus  "
     "one     two    three   minus "
-    "period  zero   divide  times "
+    "period  zero   obelus  times "
     "reset   reset  equals  equals";
 }
 
@@ -268,7 +268,7 @@ body {
 #plus   { grid-area: plus;   }
 #minus  { grid-area: minus;  }
 #times  { grid-area: times;  } 
-#divide { grid-area: divide; }
+#obelus { grid-area: obelus; }
 #equals { grid-area: equals; }
 #reset  { grid-area: reset;  }
 #delete { grid-area: delete; }
