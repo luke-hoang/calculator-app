@@ -3,7 +3,6 @@ const calc = {
   _memory   : '', // stores the results of the last operation
   _operator : '', // stores the operator for the next operation
 
-
   // reset all inputs
   reset() {
     this._entry    = [];
@@ -11,24 +10,20 @@ const calc = {
     this._operator = '';
   },
 
-
   // remove last value of an entry
   delete() {
     this._entry.pop();
   },
-
 
   // clear the operator
   clearOperator() {
     this._operator = '';
   },
 
-
   // clear the entry
   clearEntry() {
     this._entry = [];
   },
-
 
   // store entry in memory
   // thereafter memory should store the results of every operation
@@ -42,7 +37,6 @@ const calc = {
       }
     }
   },
-
 
   // enter a value as part of an entry
   // the value must be either a digit or a period
@@ -69,21 +63,18 @@ const calc = {
     }
   },
 
-
-  // return the entry
-  // default to zero if there are no values
+  // return the entry, defaults to zero
   get entry() {
     return (this._entry.length > 0) ? this._entry.join('') : 0;
   },
 
 
-  // return the results of the last operation stored in memory
+  // return the entry in memory, defaults to zero
   get memory() {
-    return (this.isNumber(this._memory)) ? Number(this._memory.toPrecision(10)) : this._memory;
+    return (this.isNumber(this._memory)) ? Number(this._memory.toPrecision(10)) : 0;
   },
 
-
-  // return the operator in symbol form for output
+  // return the operator in symbol form for output, defaults to empty string
   get operator() {
     const unicodes = {
       'plus'   : '\u002B',
@@ -91,18 +82,16 @@ const calc = {
       'times'  : '\u00D7',
       'obelus' : '\u00F7',
     }
-    return unicodes[this._operator] || this._operator;
+    return unicodes[this._operator] || '';
   },
 
-
   // set the operator
-  set operator(operator) {
+  set operator(operator) {    
     if (this.isNumber(this._memory) && this.isOperator(operator)) {
       this._operator = operator;
     }
   },
   
-
   // helper functions to validate values stored
   isDigit(value) {
     return [0,1,2,3,4,5,6,7,8,9].includes(value);
@@ -115,7 +104,6 @@ const calc = {
   isOperator(value) {
     return ['plus','minus','times','obelus'].includes(value);
   },
-
 
   // helper function to return the results of basic operations
   operate(operator, operand1, operand2) {
@@ -139,12 +127,10 @@ const calc = {
   }
 }
 
-
-// helper function to change the output on the calculator display
+// helper function to change the output on the screen
 const output = (value) => {
   document.getElementById('output').textContent = value;
 }
-
 
 // change the color of the calculator based on the theme selected
 document.getElementsByName('theme').forEach(themeOption => {
@@ -154,7 +140,6 @@ document.getElementsByName('theme').forEach(themeOption => {
   });
 });
 
-
 // store and display any digits entered as part of an entry
 document.getElementsByName('digit').forEach(digitKey => {
   digitKey.addEventListener('click', (event) => {
@@ -162,7 +147,6 @@ document.getElementsByName('digit').forEach(digitKey => {
     output(calc.entry);
   });
 });
-
 
 // store and display the results of every operation
 document.getElementsByName('operator').forEach(operatorKey => {
@@ -182,14 +166,12 @@ equalsKey.addEventListener('click', () => {
   output(calc.memory);
 });
 
-
 // store and display any period entered as part of an entry
 const periodKey = document.getElementById('period');
 periodKey.addEventListener('click', () => {
   calc.enter('.');
   output(calc.entry);
 });
-
 
 // when the delete key is clicked,
 // delete the last value entered.
@@ -198,7 +180,6 @@ deleteKey.addEventListener('click', () => {
   calc.delete();
   output(calc.entry);
 });
-
 
 // when the reset key is clicked,
 // reset all inputs to their default values
