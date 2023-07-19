@@ -58,8 +58,13 @@ const calc = {
           this._entry.push('.');
         }
       }
+
       if (this.isDigit(value)) {
-        this._entry.push(value);
+        if (this._entry.length === 1 && this._entry[0] === 0) {
+          this._entry[0] = value;
+        } else {
+          this._entry.push(value);
+        }
       }
     }
   },
