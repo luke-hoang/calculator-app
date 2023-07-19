@@ -1,11 +1,11 @@
 const calc = {
-  _entry    : [], // stores the values of an entry e.g. 123 => [1, 2, 3]
-  _memory   : '', // stores the results of the last operation
-  _operator : '', // stores the operator for the next operation
+  _entry    : [0], // stores the values of an entry e.g. 123 => [1, 2, 3]
+  _memory   : '',  // stores the results of the last operation
+  _operator : '',  // stores the operator for the next operation
 
   // reset all inputs
   reset() {
-    this._entry    = [];
+    this._entry    = [0];
     this._memory   = '';
     this._operator = '';
   },
@@ -44,15 +44,9 @@ const calc = {
   enter(value) {
     const maxEntryLength = 10;
     if (this._entry.length < maxEntryLength) {
-      if (value === '.') {
-        if (this._entry.length === 0) {
-          this._entry.push(0, '.');
-        }
-        if (!this._entry.includes('.')) {
-          this._entry.push('.');
-        }
+      if (value === '.' && !this._entry.includes('.')) {
+        this._entry.push('.')
       }
-
       if (this.isDigit(value)) {
         if (this._entry.length === 1 && this._entry[0] === 0) {
           this._entry[0] = value;
